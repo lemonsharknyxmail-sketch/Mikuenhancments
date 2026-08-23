@@ -460,10 +460,12 @@ do
         end
         ColorPicker:SetHSVFromRGB(ColorPicker.Value);
 
-        local DisplayFrame = Library:Create('Frame', {
+        local DisplayFrame = Library:Create('TextButton', {
             BackgroundColor3 = ColorPicker.Value;
             Size = UDim2.new(0, 24, 0, 14);
-            ZIndex = 6;
+            Text = '';
+            AutoButtonColor = false;
+            ZIndex = 20;
             Parent = ToggleLabel;
         });
         Library:Create('UICorner', { CornerRadius = UDim.new(0, RADIUS.Small), Parent = DisplayFrame });
@@ -689,10 +691,12 @@ do
 
         if KeyPicker.SyncToggleState then Info.Modes = { 'Toggle' }; Info.Mode = 'Toggle'; end
 
-        local PickOuter = Library:Create('Frame', {
+        local PickOuter = Library:Create('TextButton', {
             BackgroundColor3 = Library.BackgroundColor;
-            Size = UDim2.new(0, 34, 0, 16);
-            ZIndex = 6;
+            Size = UDim2.new(0, 36, 0, 16);
+            Text = '';
+            AutoButtonColor = false;
+            ZIndex = 20;
             Parent = ToggleLabel;
         });
         Library:Create('UICorner', { CornerRadius = UDim.new(0, RADIUS.Small), Parent = PickOuter });
@@ -702,7 +706,7 @@ do
             Size = UDim2.new(1, 0, 1, 0);
             TextSize = 11;
             Text = Info.Default;
-            ZIndex = 8;
+            ZIndex = 21;
             Parent = PickOuter;
         });
 
@@ -1174,7 +1178,7 @@ do
 
         local ClickRegion = Library:Create('TextButton', {
             BackgroundTransparency = 1;
-            Size = UDim2.new(1, 0, 1, 0);
+            Size = UDim2.new(1, -80, 1, 0);
             Text = '';
             ZIndex = 5;
             Parent = ToggleRow;
@@ -2163,7 +2167,7 @@ function Library:CreateWindow(...)
         local WinTitle = Library:CreateLabel({
             Position = UDim2.new(0, 23, 0, 0),
             Size = UDim2.new(1, -78, 1, 0),
-            Text = Name:upper(),
+            Text = Name:lower(),
             TextSize = 13,
             TextXAlignment = Enum.TextXAlignment.Left,
             ZIndex = 3,
